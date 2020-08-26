@@ -7,6 +7,7 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     console.log('preload')
     this.load.atlas('knight', 'assets/images/knight.png', 'assets/images/knight_atlas.json');
+    this.load.animation('knight_anim', 'assets/images/knight_anim.json');
   }
 
   create() {
@@ -22,6 +23,8 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
+    this.player.anims.play('knight_walk', true);
+
     console.log('update');
     const speed = 2.5;
     let playerVelocity = new Phaser.Math.Vector2();
