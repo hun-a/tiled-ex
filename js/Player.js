@@ -4,7 +4,17 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     const { scene, x, y, texture, frame } = data;
     super(scene.matter.world, x, y, texture, frame);
     this.scene.add.existing(this);
+    this.createInputs(scene);
     this.createBody();
+  }
+
+  createInputs(scene) {
+    this.inputKeys = scene.input.keyboard.addKeys({
+      up: Phaser.Input.Keyboard.KeyCodes.W,
+      down: Phaser.Input.Keyboard.KeyCodes.S,
+      left: Phaser.Input.Keyboard.KeyCodes.A,
+      right: Phaser.Input.Keyboard.KeyCodes.D,
+    });
   }
 
   createBody() {
