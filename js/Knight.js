@@ -1,4 +1,4 @@
-export default class Player extends Phaser.Physics.Matter.Sprite {
+export default class Knight extends Phaser.Physics.Matter.Sprite {
 
   constructor(data) {
     const { scene, x, y, texture, frame } = data;

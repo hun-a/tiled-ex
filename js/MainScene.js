@@ -1,4 +1,5 @@
-import Player from './Player.js';
+import Player from './Knight.js';
+import Knight from './Knight.js';
 
 export default class MainScene extends Phaser.Scene {
 
@@ -7,7 +8,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    Player.preload(this);
+    Knight.preload(this);
     this.load.image('tiles', 'assets/images/RPG Nature Tileset.png');
     this.load.tilemapTiledJSON('map', 'assets/images/map.json');
   }
@@ -19,8 +20,8 @@ export default class MainScene extends Phaser.Scene {
     const layer2 = map.createStaticLayer('Tile Layer 2', tileset, 0, 0);
     layer1.setCollisionByProperty({ collides: true });
     this.matter.world.convertTilemapLayer(layer1);
-    this.player = new Player({ scene: this, x: 100, y: 100, texture: 'knight', frame: 'eliteknight_idle_1' });
-    const testPlayer = new Player({ scene: this, x: 200, y: 200, texture: 'knight', frame: 'eliteknight_idle_1' });
+    this.player = new Knight({ scene: this, x: 100, y: 100, texture: 'knight', frame: 'eliteknight_idle_1' });
+    const testPlayer = new Knight({ scene: this, x: 200, y: 200, texture: 'knight', frame: 'eliteknight_idle_1' });
   }
 
   update() {
